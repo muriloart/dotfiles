@@ -14,4 +14,4 @@ Este repositório contém os arquivos de configuração do terminal do Arthur ("
 ## Uso
 
 1. Clone o repositório:
-   git clone https://github.com/seu-usuario/dotfiles.git ~/.dotfiles
+   git clone https://github.com/muriloart/dotfiles.git ~/.dotfiles
