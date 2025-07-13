@@ -1,5 +1,20 @@
-# Prompt com nome da branch git + pasta atual
-autoload -Uz vcs_info
-precmd() { vcs_info }
-setopt prompt_subst
-PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %F{green}${vcs_info_msg_0_}%f %# '
+# PAIZÃO, INSTALA O PURE PROMPT.
+# Instalação manual do Pure Prompt:
+#   git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure
+#   fpath+=( "$HOME/.zsh/pure" )
+#   autoload -U promptinit; promptinit
+#   prompt pure
+
+function tempo_restante() {
+  local hoje=$(date +%s)
+  local fim=$(date -d "2026-12-12" +%s)
+  local dias=$(( (fim - hoje) / 86400 ))
+
+  if (( dias > 0 )); then
+    printf "\n  Faltam \033[1;32m%d dias\033[0m até o prazo final: \033[1;34m12/12/2026\033[0m. EXECUTA, PORRA.\n\n" "$dias"
+  else
+    echo -e "\n O PRAZO FINAL JÁ CHEGOU. Hora de mostrar resultado.\n"
+  fi
+}
+
+tempo_restante

@@ -1,4 +1,28 @@
-aliases ll='ls -lh --color=auto'
 alias gst='git status'
 alias ga='git add'
 alias gp='git push'
+alias gco='git checkout'
+alias gb='git branch'
+alias gl='git log --oneline --graph --decorate --all'
+alias gd='git diff'
+alias ll='ls -lh --color=auto'
+alias ls="exa -al --color=always --group-directories-first"
+alias c="clear"
+alias bat="batcat --paging=never"
+alias cat="bat --paging=never"
+alias update='sudo apt update && sudo apt upgrade -y'
+alias npm-clean='npm cache clean --force'
+alias pnpm-clean='pnpm store prune'
+alias setup-dotfiles='bash ~/dotfiles/setup.sh'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+# busca com ripgrep
+alias grep="rg"
+# abre lazygit na pasta atual
+alias lg="lazygit"
+# busca no histórico com fzf
+alias h="history | fzf"
+# abre zsh config rápido
+alias zrc="nano ~/.zshrc"

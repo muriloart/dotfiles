@@ -1,0 +1,14 @@
+[user]
+  name = muriloart
+  email = arthurmurilo.dev@gmail.com
+
+[core]
+  editor = nano
+
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  lg = log --oneline --graph --decorate --all
+  last = log -1 HEAD
