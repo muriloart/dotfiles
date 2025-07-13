@@ -1,0 +1,5 @@
+# Prompt com nome da branch git + pasta atual
+autoload -Uz vcs_info
+precmd() { vcs_info }
+setopt prompt_subst
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %F{green}${vcs_info_msg_0_}%f %# '

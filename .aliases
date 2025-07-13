@@ -1,0 +1,4 @@
+aliases ll='ls -lh --color=auto'
+alias gst='git status'
+alias ga='git add'
+alias gp='git push'
