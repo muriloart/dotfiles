@@ -4,9 +4,11 @@ ZSH_THEME=""
 plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
+export DOTFILES="$HOME/code/.dotfiles"
+
 # Aliases e prompt customizados
-[[ -f $HOME/.dotfiles/.aliases ]] && source $HOME/.dotfiles/.aliases
-[[ -f $HOME/.dotfiles/.prompt ]] && source $HOME/.dotfiles/.prompt
+[[ -f "$DOTFILES/.aliases" ]] && source "$DOTFILES/.aliases"
+[[ -f "$DOTFILES/.prompt" ]] && source "$DOTFILES/.prompt"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
