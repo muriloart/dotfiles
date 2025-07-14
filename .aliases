@@ -8,7 +8,9 @@ alias gl='git log --oneline --graph --decorate --all'
 alias gd='git diff'
 
 # Directórios e listagem
-alias ls="eza -al --color=always --group-directories-first"
+alias ls="eza -al --icons --git --group-directories-first"
+alias ll="eza -l  --icons --git --group-directories-first"
+alias lt="eza -T  --icons"
 
 # Pager / cat com cor
 alias bat="batcat --paging=never"
@@ -42,21 +44,26 @@ alias gsb='cd ~/code/goldtech-system/gtech-api && npm run dev'
 alias gsf='cd ~/code/goldtech-system/gtech-app && npm run dev'
 alias cdgs='cd ~/code/goldtech-system'
 alias dbgs='psql -h localhost -U gtech -d gtech-postgres'
-alias dngs-docker='docker-compse -f ~/code/goldtech-system/gtech-api/docker-compose.yaml up -d'
+alias dbgs-docker='docker-compose -f ~/code/goldtech-system/gtech-api/docker-compose.yaml up -d'
+
 # Docker
 alias d='docker'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
+alias dclean='docker system prune -a --volumes -f'
 alias dlogs='docker-compose logs -f'
-alias dbash='docker exec -it'      # Ex: dbash <ctr> /bin/bash
+alias dbash='docker exec -it'      # Ex: dbash <container> /bin/bash
 alias dprune='docker system prune -af'
+alias dstop='docker stop $(docker ps -q)'     # Para todos
+alias drmall='docker rm -f $(docker ps -aq)'  # Remove todos
 
 # Ferramentas interativas
 alias grep='rg'
 alias lg='lazygit'
-alias h='history | fzf'
+alias h='history | fzf --preview "echo {}" --preview-window=up:1'
+alias aliases='nano ~/.aliases && source ~/.aliases'
 
 # Navegação
 alias ..='cd ..'
@@ -65,3 +72,50 @@ alias ....='cd ../../..'
 
 # Editor
 alias zrc='nano ~/.zshrc'
+
+## Função avançada para TMUX.
+alias tls="tmux ls"
+alias tk="tmux kill-session -t"
+
+t() {
+  if tmux has-session -t "$1" 2>/dev/null; then
+  tmux attach -t "$1"
+  else
+  tmux new -s "$1"
+  fi
+}
+vefwork() {
+  # Se estiver dentro de um tmux já aberto, limpa a variável pra evitar erro de nested sessions
+  unset TMUX
+
+  # Mata sessão antiga (silencioso)
+  tmux kill-session -t dev 2>/dev/null || true
+
+  # Cria nova sessão “dev” com painel principal rodando o backend
+  tmux new-session -d -s dev -n main \
+    "cd ~/code/vai-e-faz/apps/backend && pnpm dev"
+
+  # Divide horizontal pra frontend
+  tmux split-window -h -t dev:main \
+    "cd ~/code/vai-e-faz/apps/frontend && pnpm dev"
+
+  # Vai pro painel do backend
+  tmux select-pane -t dev:main.0
+
+  # Anexa na sessão
+  tmux attach -t dev
+}
+
+gswork() {
+  unset TMUX
+  tmux kill-session -t dev 2>/dev/null || true
+
+  tmux new-session -d -s dev -n main \
+    "cd ~/code/goldtech-system/gtech-api && npm run dev"
+
+  tmux split-window -h -t dev:main \
+    "cd ~/code/goldtech-system/gtech-app && npm run dev"
+
+  tmux select-pane -t dev:main.0
+  tmux attach -t dev
+}

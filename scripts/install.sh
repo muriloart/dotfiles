@@ -12,6 +12,7 @@ FILES=(.zshrc .aliases .prompt .tmux.conf .gitconfig)
 
 for file in "${FILES[@]}"; do
   ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
+  echo " → $file vinculado"
 done
 
-echo "Dotfiles instalados! É O ART."
+echo -e "\nDotfiles instalados! É O ART, PORRA."
