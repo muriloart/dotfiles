@@ -7,11 +7,11 @@ echo "Instalando symlinks..."
 # Exemplo: ./install.sh ~/meus-dotfiles
 # Se nenhum caminho for passado, o padrão será: $HOME/code/.dotfiles
 
-DOTFILES="${1:-$HOME/code/.dotfiles}"
-FILES=(.zshrc .aliases .prompt)
+DOTFILES_DIR="${1:-$HOME/code/.dotfiles}"
+FILES=(.zshrc .aliases .prompt .tmux.conf .gitconfig)
 
 for file in "${FILES[@]}"; do
-  ln -svf "$DOTFILES/$file" "$HOME/$file"
+  ln -sf "$DOTFILES_DIR/$file" "$HOME/$file"
 done
 
 echo "Dotfiles instalados! É O ART."

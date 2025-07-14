@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
+# Você pode passar um caminho customizado para seu repositório de dotfiles como argumento:
+# Exemplo: ./setup.sh ~/meus-dotfiles
+# Se nenhum caminho for passado, o padrão será: $HOME/code/.dotfiles
 
-DOTFILES_DIR="$HOME/code/.dotfiles"
+DOTFILES_DIR="${1:-$HOME/code/.dotfiles}"
 echo "Iniciando setup de dotfiles e ferramentas..."
 
 # 1) Repositórios e atualização
@@ -59,7 +62,8 @@ for file in .zshrc .aliases .prompt .tmux.conf .gitconfig; do
 done
 
 # 8) Oh My Zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
+if [ ! -d "$HOME/.oh-my-zsh" ];
+ then
   echo "Clonando Oh My Zsh..."
   git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
 fi

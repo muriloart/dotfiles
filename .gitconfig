@@ -3,7 +3,10 @@
   email = arthurmurilo.dev@gmail.com
 
 [core]
-  editor = nano
+  editor = code --wait
+
+[color]
+  ui = auto
 
 [alias]
   co = checkout
@@ -12,3 +15,15 @@
   st = status
   lg = log --oneline --graph --decorate --all
   last = log -1 HEAD
+  aa = add --all
+  cm = commit -m
+  amend = commit --amend --no-edit
+  rb = rebase
+  rbc = rebase --continue
+  pl = pull
+  ps = push
+  df = diff
+  dc = diff --cached
+  fixup = commit --fixup
+  squash = rebase -i --autosquash HEAD~3
+  undo = reset --soft HEAD~1
