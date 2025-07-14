@@ -10,6 +10,7 @@ Inclui atalhos, terminal (WezTerm), ZSH, plugins, Git, Docker, Node.js, e ferram
 | Arquivo               | Função principal                                                          |
 | --------------------- | ------------------------------------------------------------------------- |
 | `.zshrc`              | Configura ZSH, Oh My Zsh, plugins, fzf, NVM e Pure Prompt                 |
+| `sync-dotfiles.sh`    | Sincroniza a configuração do WezTerm entre WSL e Windows                  |
 | `.aliases`            | Atalhos práticos: `exa`, `bat`, `rg`, `fzf`, `lazygit`, Git, entre outros |
 | `.prompt`             | Ativa Pure Prompt + Automações pessoais.                                  |
 | `.gitconfig`          | Configuração global de usuário e formatação para Git                      |
@@ -36,43 +37,71 @@ git clone https://github.com/muriloart/dotfiles.git .dotfiles
 
 ```bash
 cd ~/code/.dotfiles
-chmod +x setup.sh
+chmod +x scripts/setup.sh
 ./setup.sh
 ```
 
 Esse script irá:
 
-- Instalar: `curl`, `ripgrep`, `bat`, `fzf`, `lazygit`, `exa`, `tmux`, `zsh`, `build-essential`, `git`
-- Instalar NVM + Node LTS + pnpm/yarn
-- Criar symlinks (`.zshrc`, `.aliases`, `.prompt`, `.tmux.conf`, `.gitconfig`)
+- Instalar: curl, ripgrep, bat, fzf, lazygit, eza, tmux, zsh, build-essential, git
+- Instalar NVM + Node.js LTS + pnpm/yarn
+- Criar symlinks (.zshrc, .aliases, .prompt, .tmux.conf, .gitconfig)
 - Clonar o Oh My Zsh (caso não tenha)
+- Instala manualmente eza e lazygit (última versão do GitHub, caso ainda não estejam disponíveis no sistema)
 - Ativar configurações úteis de terminal
 
 ---
 
-### 3. (Opcional) Executar `install.sh`
+---
+
+### 2.1 Configurar Pure Prompt + Contador de Prazo Final
+
+> Pure Prompt é o tema visual do terminal e exibe também a contagem regressiva até a data final do meu plano: `12/12/2026`.
+
+#### Instalação manual do Pure Prompt:
+
+```bash
+git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure
+```
+
+---
+
+### 3. Executar `install.sh`
 
 Se você **já tiver dependências instaladas**, use apenas:
 
-```bash
+#### Symlinks com caminho padrão
+
 ./install.sh
-```
+
+#### Symlinks com caminho customizado
+
+./install.sh ~/meus-dotfiles
 
 Esse script só cuida de criar os symlinks.
 
 ---
 
-### 4. (Opcional) Configurar o WezTerm no Windows
+### 4. Configurar o WezTerm no Windows
 
-> WezTerm é meu terminal principal. Essa etapa é **no Windows**, não no WSL.
+#### Antes de rodar:
 
-```powershell
-# Mover o arquivo para dentro do repositório versionado:
-mv $HOME\.wezterm.lua $HOME\code\.dotfiles\wezterm\wezterm.lua
+#### Edite 'sync-dotfiles.sh' e troque "/Users/conta/" pelo seu nome de usuário real no Windows
 
-# Criar um link simbólico para que o WezTerm aponte sempre para ele:
-New-Item -Path "$HOME\.wezterm.lua" -ItemType SymbolicLink -Value "$HOME\code\.dotfiles\wezterm\wezterm.lua"
-```
+> WezTerm é meu terminal principal. Essa etapa é **no WSL**.
+
+- Essa etapa é executada no WSL, não no Windows.
+  O objetivo é copiar sua config personalizada do wezterm.lua (armazenada no seu repositório dotfiles) para o local onde o WezTerm (no Windows) realmente lê o arquivo.
+- Sempre que editar o arquivo ~/code/.dotfiles/.wezterm.lua, sincronize com o WezTerm do Windows rodando:
+
+- ```bash
+  chmod +x ~/code/dotfiles/scripts/sync-dotfiles.sh
+    ~/code/dotfiles/scripts/sync-dotfiles.sh
+  ```
+
+- Esse script copia o arquivo .wezterm.lua para:
+- /mnt/c/Users/_conta_/.config/wezterm/wezterm.lua
+- Após isso, é só reiniciar o WezTerm para aplicar a nova configuração.
 
 ---
 
@@ -93,3 +122,11 @@ New-Item -Path "$HOME\.wezterm.lua" -ItemType SymbolicLink -Value "$HOME\code\.d
 **Arthur “Murilo ART”**
 Desenvolvedor Fullstack & fundador do Vai & Faz
 [github.com/muriloart](https://github.com/muriloart)
+
+```
+
+```
+
+```
+
+```

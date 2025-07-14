@@ -27,7 +27,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview 'bat -
 fpath+=("$HOME/.zsh/pure")
 autoload -U promptinit; promptinit
 autoload -U prompt_pure_setup; prompt_pure_setup
-
+prompt pure
 
 # Autocomplete (opcional, mas pode ajudar)
 autoload -U compinit; compinit

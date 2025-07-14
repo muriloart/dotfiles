@@ -1,4 +1,5 @@
--- COPIAR ARQUIVO PARA C:\Users\*seu-usuario* POIS MESMO USANDO WSL O WEZTERM NECESSITA DE UM MOTOR GRÁFICO, E EU (ART) NÃO USO WSLg, X Servers nem outra ~gambiarra~ ferramenta.
+-- COPIAR ARQUIVO PARA WINDOWS POIS MESMO USANDO WSL O WEZTERM NECESSITA DE UM MOTOR GRÁFICO, E EU (ART) NÃO USO WSLg, X Servers nem outra ~gambiarra~ ferramenta.
+-- execute o /scripts/sync-dotfiles.sh, qualquer dúvida leia o README.md
 local wezterm = require 'wezterm'
 
 local act = wezterm.action

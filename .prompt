@@ -4,16 +4,17 @@
 #   autoload -U promptinit; promptinit
 #   prompt pure
 
-function tempo_restante() {
+tempo_restante() {
   local hoje=$(date +%s)
-  local fim=$(date -d "2026-12-12" +%s)
+  local fim=$(date -d "12/31/2026" +%s)   #  MM/DD/YYYY por exigência do comando `date`
   local dias=$(( (fim - hoje) / 86400 ))
 
   if (( dias > 0 )); then
-    printf "\n  Faltam \033[1;32m%d dias\033[0m até o prazo final: \033[1;34m12/12/2026\033[0m. EXECUTA, PORRA.\n\n" "$dias"
+    printf "\n  Faltam \033[1;32m%d dias\033[0m até o prazo final: \033[1;34m31/12/2026\033[0m. EXECUTA, PORRA.\n\n" "$dias"
   else
-    echo -e "\n O PRAZO FINAL JÁ CHEGOU. Hora de mostrar resultado.\n"
+    echo -e "\n  \033[1;31mO PRAZO FINAL CHEGOU.\033[0m É HORA DE ENTREGAR TUDO.\n"
   fi
 }
+
 
 tempo_restante
