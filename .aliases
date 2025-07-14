@@ -28,7 +28,7 @@ alias pnpm-clean='pnpm store prune'
 
 # Dotfiles / setup
 alias setup-dotfiles='bash ~/scripts/setup.sh'
-alias dotfiles='code --folder-uri "file://$HOME/code/dotfiles"'
+alias dotfiles='code --folder-uri "file://$HOME/code/.dotfiles"'
 alias cddotfiles='cd ~/code/.dotfiles'
 
 # V&F shortcuts
@@ -70,13 +70,14 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+
 # Editor
 alias zrc='nano ~/.zshrc'
 
 ## Função avançada para TMUX.
 alias tls="tmux ls"
 alias tk="tmux kill-session -t"
-
+alias tr="TMUX='' tmux -f ~/.tmux.conf"
 t() {
   if tmux has-session -t "$1" 2>/dev/null; then
   tmux attach -t "$1"

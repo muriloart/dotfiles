@@ -27,14 +27,17 @@ return {
 
   keys = {
     -- Splits
-    { key="Enter", mods="LEADER|ALT",   action=act.SplitHorizontal { domain="CurrentPaneDomain" } },
-    { key="Enter", mods="LEADER|CTRL|ALT", action=act.SplitVertical   { domain="CurrentPaneDomain" } },
+
+{ key="h", mods="LEADER", action=act.SplitHorizontal { domain="CurrentPaneDomain" } },
+{ key="v", mods="LEADER", action=act.SplitVertical   { domain="CurrentPaneDomain" } },
+
 
     -- Navegação entre panes com hjkl
-    { key="h", mods="LEADER", action=act.ActivatePaneDirection "Left" },
-    { key="j", mods="LEADER", action=act.ActivatePaneDirection "Down" },
-    { key="k", mods="LEADER", action=act.ActivatePaneDirection "Up" },
-    { key="l", mods="LEADER", action=act.ActivatePaneDirection "Right" },
+{ key="LeftArrow",  mods="LEADER", action=act.ActivatePaneDirection "Left" },
+{ key="RightArrow", mods="LEADER", action=act.ActivatePaneDirection "Right" },
+{ key="UpArrow",    mods="LEADER", action=act.ActivatePaneDirection "Up" },
+{ key="DownArrow",  mods="LEADER", action=act.ActivatePaneDirection "Down" },
+
 
     -- Tabs
     { key="t", mods="LEADER", action=act.SpawnTab "CurrentPaneDomain" },

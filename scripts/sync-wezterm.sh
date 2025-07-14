@@ -1,15 +1,15 @@
 #!/bin/bash
 set -euo pipefail
 
-# Caminho do arquivo fonte no WSL (seu repositório de dotfiles)
+# Caminho do arquivo fonte no WSL (meu repositório de dotfiles)
 SRC="$HOME/code/.dotfiles/.wezterm.lua"
 
 # Caminho do destino no Windows (montado no WSL)
-#  Troque 'conta' pelo seu nome de usuário do Windows.
-DST="/mnt/c/Users/conta/.config/wezterm/wezterm.lua"
+#  Troque 'user' pelo seu nome de usuário do Windows.
+DST="/mnt/c/Users/user/.config/wezterm/wezterm.lua"
 
 # Proteção contra erro de esquecimento
-if [[ "$DST" == *"/conta/"* ]]; then
+if [[ "$DST" == *"/user/"* ]]; then
   echo "Você esqueceu de trocar 'conta' pelo seu nome de usuário do Windows."
   exit 1
 fi
