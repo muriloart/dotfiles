@@ -38,6 +38,8 @@ alias dbvef-docker='docker-compose -f ~/code/vai-e-faz/docker-compose.yaml up -d
 
 # Gold Tech shortcuts
 alias gs='code --folder-uri "file://$HOME/code/goldtech-system/"'
+alias gsb='cd ~/code/goldtech-system/gtech-api && npm run dev'
+alias gsf='cd ~/code/goldtech-system/gtech-app && npm run dev'
 alias cdgs='cd ~/code/goldtech-system'
 alias dbgs='psql -h localhost -U gtech -d gtech-postgres'
 alias dngs-docker='docker-compse -f ~/code/goldtech-system/gtech-api/docker-compose.yaml up -d'
