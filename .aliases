@@ -17,6 +17,19 @@ alias setup-dotfiles='bash ~/dotfiles/setup.sh'
 alias vef='code --folder-uri "file://$HOME/code/vai-e-faz"'
 alias cdvef='cd ~/code/vai-e-faz'
 alias dotfiles='code --folder-uri "file://$HOME/code/.dotfiles"'
+alias dbvef='psql -h localhost -U vaiefaz -d vaiefazdb'
+
+alias d='docker'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dlogs='docker-compose logs -f'
+alias dbash='docker exec -it'  # Ex: dbash <container_name> /bin/bash
+alias dprune='docker system prune -af'  # Limpa tudo (containers/parados, cache etc)
+# Atalho p/ subir banco do V&F com Docker Compose
+alias dbvef='docker-compose -f ~/code/vai-e-faz/docker-compose.yaml up -d'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
