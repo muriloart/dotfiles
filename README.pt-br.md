@@ -70,10 +70,16 @@ Se você já tiver as dependências:
 
 ```bash
 # Caminho padrão:
-./install.sh
+./scripts/install.sh
 
 # Caminho customizado:
-./install.sh ~/meus-dotfiles
+./scripts/install.sh  ~/meus-dotfiles
+```
+
+Execute isso para verificar se os symlinks foram criados com sucesso
+
+```bash
+for f in .zshrc .aliases .prompt .tmux.conf .gitconfig; do echo -n "$f → " && readlink ~/$f; done
 ```
 
 ---
@@ -86,8 +92,8 @@ Se você já tiver as dependências:
 2. Torne executável e rode:
 
 ```bash
-chmod +x ~/code/.dotfiles/scripts/sync-dotfiles.sh
-~/code/.dotfiles/scripts/sync-dotfiles.sh
+chmod +x ~/code/.dotfiles/scripts/sync-wezterm.sh
+~/code/.dotfiles/scripts/sync-wezterm.sh
 ```
 
 > Isso copia `.wezterm.lua` para o caminho correto no Windows:
@@ -105,7 +111,7 @@ Reinicie o WezTerm após essa etapa.
 - [x] `nvm`, `node`, `pnpm`, `yarn` instalados
 - [x] Docker e Docker Compose funcionando
 - [x] Symlinks criados corretamente
-- [x] WezTerm configurado no Windows (opcional)
+- [x] WezTerm configurado no Windows
 
 ---
 

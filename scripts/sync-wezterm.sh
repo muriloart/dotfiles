@@ -6,7 +6,7 @@ SRC="$HOME/code/.dotfiles/.wezterm.lua"
 
 # Caminho do destino no Windows (montado no WSL)
 #  Troque 'user' pelo seu nome de usuário do Windows.
-DST="/mnt/c/Users/user/.config/wezterm/wezterm.lua"
+DST="/mnt/c/Users/Murilo ART/.config/wezterm/wezterm.lua"
 
 # Proteção contra erro de esquecimento
 if [[ "$DST" == *"/user/"* ]]; then

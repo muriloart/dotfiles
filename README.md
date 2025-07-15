@@ -72,10 +72,17 @@ If you already have dependencies installed:
 
 ```bash
 # Default path
-./install.sh
+./scripts/install.sh
 
 # Custom path
-./install.sh ~/my-dotfiles
+cd ~/code/.dotfiles
+./scripts/install.sh ~/my-dotfiles
+```
+
+Run this to verify symlinks were created correctly:
+
+```bash
+for f in .zshrc .aliases .prompt .tmux.conf .gitconfig; do echo -n "$f → " && readlink ~/$f; done
 ```
 
 ---
@@ -88,8 +95,8 @@ If you already have dependencies installed:
 2. Make the script executable and run:
 
 ```bash
-chmod +x ~/code/.dotfiles/scripts/sync-dotfiles.sh
-~/code/.dotfiles/scripts/sync-dotfiles.sh
+chmod +x ~/code/.dotfiles/scripts/sync-wezterm.sh
+~/code/.dotfiles/scripts/sync-wezterm.sh
 ```
 
 This copies `.wezterm.lua` to:

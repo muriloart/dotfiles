@@ -15,7 +15,7 @@ return {
   check_for_updates = false,
   audible_bell = "Disabled",
   window_background_opacity = 0.95,
-  enable_wayland = false,              -- se você usar no Linux
+  enable_wayland = false,        
   warn_about_missing_glyphs = false,
 
   -- WSL Integration
