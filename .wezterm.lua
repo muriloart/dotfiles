@@ -5,6 +5,7 @@ local wezterm = require 'wezterm'
 local act = wezterm.action
 
 return {
+
   font = wezterm.font_with_fallback { 'JetBrainsMono Nerd Font', 'Noto Color Emoji' },
   font_size = 12.0,
   color_scheme = 'One Dark (Gogh)',
@@ -14,7 +15,7 @@ return {
   enable_scroll_bar = false,
   check_for_updates = false,
   audible_bell = "Disabled",
-  window_background_opacity = 0.95,
+  window_background_opacity = 1.0,
   enable_wayland = false,        
   warn_about_missing_glyphs = false,
 
@@ -54,6 +55,8 @@ return {
     { key="-", mods="LEADER", action=act.DecreaseFontSize },
     { key="0", mods="LEADER", action=act.ResetFontSize },
 
+    -- Fullscreen 
+    {key="f", mods="LEADER", action=act.ToggleFullScreen },
     -- Quick reload config
     { key="r", mods="LEADER", action=act.ReloadConfiguration },
 
