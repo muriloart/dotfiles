@@ -35,7 +35,7 @@ alias cddotfiles='cd ~/code/.dotfiles'
 alias vef='code --folder-uri "file://$HOME/code/vai-e-faz"'
 alias cdvef='cd ~/code/vai-e-faz'
 alias dbvef='psql -h localhost -U vaiefaz -d vaiefazdb'
-alias dbvef-docker='docker-compose -f ~/code/vai-e-faz/docker-compose.yaml up -d'
+alias dbvef-docker='docker-compose -f ~/code/vai-e-faz/apps/backend/docker-compose.yaml up -d'
 
 
 # Gold Tech shortcuts
