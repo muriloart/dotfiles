@@ -8,7 +8,7 @@ return {
 
   font = wezterm.font_with_fallback { 'JetBrainsMono Nerd Font', 'Noto Color Emoji' },
   font_size = 12.0,
-  color_scheme = 'One Dark (Gogh)',
+  color_scheme = 'Twilight',
   hide_tab_bar_if_only_one_tab = true,
 
   window_decorations = "RESIZE",

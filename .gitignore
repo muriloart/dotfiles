@@ -3,3 +3,4 @@
 *.swo
 *.bak
 *.tmp
+scripts/sync-wezterm.sh

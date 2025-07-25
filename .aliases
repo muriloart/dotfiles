@@ -1,7 +1,7 @@
-# Git
 alias gst='git status'
 alias ga='git add'
-alias gp='git push'
+alias gps='git push'
+alias gpl='git pull'
 alias gco='git checkout'
 alias gb='git branch'
 alias gl='git log --oneline --graph --decorate --all'
@@ -31,7 +31,7 @@ alias setup-dotfiles='bash ~/scripts/setup.sh'
 alias dotfiles='code --folder-uri "file://$HOME/code/.dotfiles"'
 alias cddotfiles='cd ~/code/.dotfiles'
 
-# V&F shortcuts
+# Vai&Faz shortcuts
 alias vef='code --folder-uri "file://$HOME/code/vai-e-faz"'
 alias cdvef='cd ~/code/vai-e-faz'
 alias dbvef='psql -h localhost -U vaiefaz -d vaiefazdb'
