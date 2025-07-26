@@ -13,6 +13,9 @@ sudo apt install -y \
   curl git unzip ripgrep tmux zsh build-essential \
   bat fzf
 
+# ——> forçar o zsh como shell padrão
+chsh -s "$(which zsh)" || echo "falha ao alterar shell; faça manualmente depois"
+
 ## 3) NVM + Node.js LTS
 if ! command -v nvm &>/dev/null; then
   echo "Instalando NVM..."

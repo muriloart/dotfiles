@@ -6,7 +6,8 @@ local act = wezterm.action
 
 return {
 
-  font = wezterm.font_with_fallback { 'JetBrainsMono Nerd Font', 'Noto Color Emoji' },
+  font = wezterm.font_with_fallback { 'JetBrainsMono Nerd Font', 'Noto Color Emoji', 'Noto Sans Symbols2',  -- cobre matemáticos
+  'Noto Color Emoji',},
   font_size = 12.0,
   color_scheme = 'Twilight',
   hide_tab_bar_if_only_one_tab = true,
@@ -21,7 +22,7 @@ return {
 
   -- WSL Integration
   default_domain = "WSL:Ubuntu",
-  default_prog = { "wsl.exe", "--cd", "~" },
+default_prog = { "wsl.exe", "-d", "Ubuntu", "-e", "zsh", "-l" },
 
   -- Leader key (prefix para atalhos)
   leader = { key="a", mods="CTRL", timeout_milliseconds=1000 },
